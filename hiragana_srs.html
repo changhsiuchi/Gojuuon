@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>五十音複習 ・ ごじゅうおん</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ece8de;
+    --bg-deep: #d8d2c2;
+    --paper: #faf6ec;
+    --ink: #1a1f2e;
+    --ink-soft: #404757;
+    --ink-faint: #8a8779;
+    --indigo: #2a4365;
+    --indigo-deep: #1b2c45;
+    --vermilion: #c54a3e;
+    --gold: #a08358;
+    --green: #5a7a4e;
+    --line: #c9c3b3;
+    --line-soft: #e0dbc9;
+
+    /* mastery colors */
+    --m0: #f0e8d5;
+    --m1: #e8d5b5;
+    --m2: #d8b988;
+    --m3: #a8945b;
+    --m4: #7a8c5c;
+    --m5: #4f6b54;
+    --m6: #2a4365;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Crimson Pro', 'Shippori Mincho', serif;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-image:
+      radial-gradient(at 15% 5%, rgba(42,67,101,0.05) 0px, transparent 50%),
+      radial-gradient(at 85% 95%, rgba(197,74,62,0.04) 0px, transparent 50%);
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 44px 32px 100px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* HEADER */
+  header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 32px;
+  }
+
+  .title-block { flex: 1; }
+
+  .eyebrow {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  h1 .small {
+    font-size: 19px;
+    color: var(--ink-soft);
+    font-weight: 500;
+    display: block;
+    margin-top: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  .seal {
+    width: 84px;
+    height: 84px;
+    border: 2.5px solid var(--indigo);
+    color: var(--indigo);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 700;
+    transform: rotate(-3deg);
+    flex-shrink: 0;
+    margin-left: 24px;
+    background: rgba(42,67,101,0.04);
+  }
+  .seal .h-top { font-size: 11px; letter-spacing: 0.1em; line-height: 1; margin-bottom: 3px; }
+  .seal .h-big { font-size: 24px; line-height: 1; font-weight: 800; }
+  .seal .h-bottom { font-size: 11px; letter-spacing: 0.1em; margin-top: 3px; }
+
+  /* QUICK STATS */
+  .quick-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+
+  .stat-card {
+    background: var(--paper);
+    border: 1px solid var(--line-soft);
+    padding: 14px 18px;
+    text-align: left;
+  }
+
+  .stat-card .label {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .stat-card .value {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .stat-card .value .unit {
+    font-size: 13px;
+    color: var(--ink-faint);
+    font-weight: 400;
+    margin-left: 4px;
+  }
+  .stat-card .value.indigo { color: var(--indigo); }
+  .stat-card .value.green { color: var(--green); }
+  .stat-card .value.vermilion { color: var(--vermilion); }
+
+  /* TABS */
+  .tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--line);
+    overflow-x: auto;
+  }
+
+  .tab {
+    background: none;
+    border: none;
+    padding: 14px 22px;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 16px;
+    color: var(--ink-faint);
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  .tab:hover { color: var(--ink); }
+
+  .tab.active { color: var(--ink); font-weight: 600; }
+
+  .tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 22px;
+    right: 22px;
+    height: 2px;
+    background: var(--indigo);
+  }
+
+  .tab .num {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin-right: 8px;
+  }
+
+  /* PANELS */
+  .panel { display: none; animation: fadeIn 0.4s ease; }
+  .panel.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .panel-intro {
+    background: var(--paper);
+    border: 1px solid var(--line-soft);
+    padding: 18px 22px;
+    margin-bottom: 24px;
+    border-left: 3px solid var(--indigo);
+  }
+  .panel-intro h2 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .panel-intro p {
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* PILLS */
+  .pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+
+  .pill {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    padding: 7px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 13px;
+    transition: all 0.2s;
+  }
+  .pill:hover { border-color: var(--ink-faint); color: var(--ink); }
+  .pill.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .pill.indigo.active { background: var(--indigo); border-color: var(--indigo); }
+
+  /* LEARN MODE */
+  .kana-section { margin-bottom: 32px; }
+  .kana-section-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 16px;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--line);
+    letter-spacing: 0.1em;
+  }
+  .kana-section-title .romaji-label {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    color: var(--gold);
+    margin-left: 10px;
+    font-size: 13px;
+  }
+
+  .kana-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
+    gap: 8px;
+  }
+  .kana-grid.youon { grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); }
+
+  .kcard {
+    background: var(--paper);
+    border: 1px solid var(--line-soft);
+    padding: 14px 6px;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: center;
+    position: relative;
+  }
+
+  .kcard:hover {
+    border-color: var(--indigo);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+
+  .kcard.speaking {
+    background: var(--indigo);
+    border-color: var(--indigo);
+    color: white;
+  }
+  .kcard.speaking .jp,
+  .kcard.speaking .romaji { color: white; }
+
+  .kcard .jp {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 28px;
+    color: var(--ink);
+    line-height: 1.1;
+    font-weight: 500;
+  }
+  .kcard.youon .jp { font-size: 24px; }
+  .kcard .romaji {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--gold);
+    margin-top: 4px;
+    letter-spacing: 0.03em;
+  }
+
+  .kcard .mastery-dot {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--m0);
+  }
+
+  /* PRACTICE / FLASHCARD */
+  .practice-controls {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 18px;
+    margin-bottom: 20px;
+  }
+
+  .practice-controls .row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .practice-controls .label {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-right: 4px;
+  }
+
+  .flashcard-stage {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 50px 30px;
+    text-align: center;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .flashcard-progress {
+    position: absolute;
+    top: 18px;
+    left: 22px;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    color: var(--ink-faint);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+  }
+
+  .flashcard-meta {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-faint);
+    text-align: right;
+  }
+  .flashcard-meta .mast-bar {
+    display: inline-block;
+    margin-left: 6px;
+    width: 60px;
+    height: 6px;
+    background: var(--bg-deep);
+    border-radius: 3px;
+    overflow: hidden;
+    vertical-align: middle;
+  }
+  .flashcard-meta .mast-bar div {
+    height: 100%;
+    background: var(--indigo);
+    transition: width 0.3s;
+  }
+
+  .flashcard-kana {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 140px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1;
+    margin: 20px 0;
+  }
+
+  .flashcard-romaji {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 32px;
+    color: var(--gold);
+    margin-bottom: 6px;
+    letter-spacing: 0.05em;
+    min-height: 42px;
+    transition: opacity 0.3s;
+  }
+
+  .flashcard-hint {
+    font-family: 'Shippori Mincho', serif;
+    color: var(--ink-faint);
+    font-size: 14px;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+  }
+
+  .flashcard-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .fc-btn {
+    background: var(--ink);
+    color: var(--bg);
+    border: none;
+    padding: 14px 32px;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 3px;
+  }
+  .fc-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .fc-btn.show { background: var(--indigo); }
+  .fc-btn.wrong { background: var(--vermilion); }
+  .fc-btn.right { background: var(--green); }
+  .fc-btn.speak {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .flashcard-buttons.reveal .show { display: none; }
+  .flashcard-buttons:not(.reveal) .wrong,
+  .flashcard-buttons:not(.reveal) .right { display: none; }
+
+  /* QUIZ */
+  .quiz-stage {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 36px;
+    text-align: center;
+  }
+
+  .quiz-progress {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    color: var(--ink-faint);
+    margin-bottom: 18px;
+    letter-spacing: 0.1em;
+    font-size: 13px;
+  }
+
+  .quiz-prompt {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+
+  .quiz-question-jp {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 96px;
+    color: var(--ink);
+    margin: 16px 0;
+    line-height: 1;
+  }
+  .quiz-question-romaji {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 48px;
+    color: var(--indigo);
+    margin: 16px 0;
+    letter-spacing: 0.05em;
+  }
+
+  .quiz-audio-btn {
+    background: var(--indigo);
+    color: var(--bg);
+    border: none;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 16px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 28px;
+  }
+  .quiz-audio-btn:hover { background: var(--indigo-deep); transform: scale(1.05); }
+  .quiz-audio-btn.speaking { animation: pulse 1s infinite; }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
+
+  .quiz-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    max-width: 500px;
+    margin: 24px auto 0;
+  }
+
+  .quiz-option {
+    background: var(--bg);
+    border: 1.5px solid var(--line);
+    padding: 16px 18px;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 18px;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 3px;
+  }
+  .quiz-option:hover { border-color: var(--ink); background: var(--paper); }
+  .quiz-option.correct { border-color: var(--green); background: rgba(90,122,78,0.1); color: var(--green); }
+  .quiz-option.wrong { border-color: var(--vermilion); background: rgba(197,74,62,0.1); color: var(--vermilion); }
+  .quiz-option:disabled { cursor: not-allowed; }
+
+  .quiz-options.large .quiz-option {
+    font-size: 32px;
+    padding: 24px;
+    font-family: 'Shippori Mincho', serif;
+  }
+
+  .quiz-score {
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
+  .quiz-score div { text-align: center; }
+  .quiz-score .label {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    color: var(--ink-faint);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .quiz-score .value {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 26px;
+    font-weight: 600;
+  }
+  .quiz-score .value.green { color: var(--green); }
+  .quiz-score .value.vermilion { color: var(--vermilion); }
+
+  .quiz-next {
+    background: var(--ink);
+    color: var(--bg);
+    border: none;
+    padding: 12px 28px;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 3px;
+    transition: background 0.2s;
+  }
+  .quiz-next:hover { background: var(--indigo); }
+  .quiz-next:disabled { background: var(--line); cursor: not-allowed; }
+
+  /* PROGRESS */
+  .progress-section { margin-bottom: 32px; }
+  .progress-section h3 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .mastery-legend {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 16px;
+    font-family: 'Crimson Pro', serif;
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-style: italic;
+    flex-wrap: wrap;
+  }
+  .mastery-legend .item { display: flex; align-items: center; gap: 5px; }
+  .mastery-legend .box {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    border: 1px solid var(--line);
+  }
+
+  .heatmap {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
+    gap: 6px;
+  }
+
+  .heatmap .hcard {
+    aspect-ratio: 1;
+    background: var(--m0);
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 18px;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.15s;
+  }
+  .heatmap .hcard:hover { transform: scale(1.1); z-index: 5; }
+  .heatmap .hcard .small-romaji {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 9px;
+    color: var(--ink-faint);
+  }
+  .heatmap .hcard[data-mastery="0"] { background: var(--m0); color: var(--ink-soft); }
+  .heatmap .hcard[data-mastery="1"] { background: var(--m1); color: var(--ink); }
+  .heatmap .hcard[data-mastery="2"] { background: var(--m2); color: var(--ink); }
+  .heatmap .hcard[data-mastery="3"] { background: var(--m3); color: var(--paper); }
+  .heatmap .hcard[data-mastery="4"] { background: var(--m4); color: var(--paper); }
+  .heatmap .hcard[data-mastery="5"] { background: var(--m5); color: var(--paper); }
+  .heatmap .hcard[data-mastery="6"] { background: var(--m6); color: var(--paper); }
+  .heatmap .hcard[data-mastery="3"] .small-romaji,
+  .heatmap .hcard[data-mastery="4"] .small-romaji,
+  .heatmap .hcard[data-mastery="5"] .small-romaji,
+  .heatmap .hcard[data-mastery="6"] .small-romaji { color: rgba(250,246,236,0.7); }
+
+  .danger-zone {
+    background: rgba(197,74,62,0.06);
+    border: 1px dashed var(--vermilion);
+    padding: 20px;
+    margin-top: 30px;
+  }
+  .danger-zone h3 {
+    color: var(--vermilion);
+    margin-bottom: 8px;
+    border: none;
+  }
+  .danger-zone p {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+    font-family: 'Shippori Mincho', serif;
+  }
+  .reset-btn {
+    background: var(--vermilion);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  .reset-btn:hover { background: #a83e34; }
+
+  /* SETTINGS BAR */
+  .settings-bar {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    z-index: 100;
+    border-radius: 4px;
+  }
+  .settings-bar label { display: flex; align-items: center; gap: 6px; }
+  .settings-bar input[type="range"] { width: 80px; cursor: pointer; }
+  .settings-bar select {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    padding: 3px 8px;
+    font-family: inherit;
+    font-size: 12px;
+    color: var(--ink);
+    max-width: 130px;
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-faint);
+    letter-spacing: 0.05em;
+  }
+  footer .dash { color: var(--indigo); margin: 0 10px; }
+
+  /* SESSION DONE */
+  .done-card {
+    background: var(--paper);
+    border: 1px solid var(--green);
+    padding: 50px 30px;
+    text-align: center;
+    border-radius: 4px;
+  }
+  .done-card h2 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 28px;
+    color: var(--green);
+    margin-bottom: 14px;
+  }
+  .done-card p {
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    font-family: 'Shippori Mincho', serif;
+  }
+  .done-card .next-time {
+    background: var(--bg-deep);
+    padding: 14px 20px;
+    border-radius: 3px;
+    color: var(--ink-soft);
+    font-size: 13px;
+    margin: 20px 0;
+    display: inline-block;
+    font-family: 'Shippori Mincho', serif;
+  }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    .container { padding: 28px 16px 120px; }
+    header { flex-direction: column; }
+    .seal { margin-left: 0; margin-top: 16px; }
+    h1 { font-size: 30px; }
+    h1 .small { font-size: 15px; }
+    .quick-stats { grid-template-columns: 1fr 1fr; }
+    .flashcard-kana { font-size: 100px; }
+    .quiz-question-jp { font-size: 72px; }
+    .quiz-question-romaji { font-size: 36px; }
+    .quiz-options { grid-template-columns: 1fr; }
+    .kana-grid { grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); }
+    .kcard .jp { font-size: 24px; }
+    .settings-bar {
+      bottom: 0;
+      right: 0;
+      left: 0;
+      border-radius: 0;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .heatmap { grid-template-columns: repeat(auto-fill, minmax(48px, 1fr)); }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="title-block">
+      <div class="eyebrow">Hiragana Mastery · ひらがな ふくしゅう</div>
+      <h1>
+        ごじゅうおん・五十音
+        <span class="small">清音 46 ・濁音 20 ・半濁音 5 ・拗音 33 ・共 104 字</span>
+      </h1>
+    </div>
+    <div class="seal">
+      <div class="h-top">ひらがな</div>
+      <div class="h-big">仮名</div>
+      <div class="h-bottom">復習</div>
+    </div>
+  </header>
+
+  <!-- QUICK STATS -->
+  <div class="quick-stats" id="quick-stats"></div>
+
+  <!-- TABS -->
+  <nav class="tabs">
+    <button class="tab active" data-tab="learn"><span class="num">壹</span>學習</button>
+    <button class="tab" data-tab="practice"><span class="num">貳</span>練習（間隔重複）</button>
+    <button class="tab" data-tab="quiz"><span class="num">參</span>測驗</button>
+    <button class="tab" data-tab="progress"><span class="num">肆</span>進度</button>
+  </nav>
+
+  <!-- LEARN PANEL -->
+  <div class="panel active" id="panel-learn">
+    <div class="panel-intro">
+      <h2>學習瀏覽</h2>
+      <p>點任何字會發音。建議第一次學每行先慢慢看過，邊聽邊念，每個音念 3 次。卡片右上角的小點代表你目前的熟練度（顏色越深越熟）。</p>
+    </div>
+    <div class="pills" id="learn-pills"></div>
+    <div id="learn-content"></div>
+  </div>
+
+  <!-- PRACTICE PANEL -->
+  <div class="panel" id="panel-practice">
+    <div class="panel-intro">
+      <h2>間隔重複練習（SRS）</h2>
+      <p>系統會根據艾賓豪斯遺忘曲線安排複習：答對的字下次間隔變長（10 分 → 1 時 → 1 日 → 3 日 → 7 日 → 14 日 → 30 日），答錯就拉回近期。看到字先在腦中念出來，再揭曉答案，誠實點按「不會」或「會了」。</p>
+    </div>
+    <div class="practice-controls">
+      <div class="row">
+        <span class="label">包含類別：</span>
+        <button class="pill active" data-fc-cat="清音">清音</button>
+        <button class="pill active" data-fc-cat="濁音">濁音</button>
+        <button class="pill active" data-fc-cat="半濁音">半濁音</button>
+        <button class="pill" data-fc-cat="拗音">拗音</button>
+      </div>
+    </div>
+    <div id="flashcard-area"></div>
+  </div>
+
+  <!-- QUIZ PANEL -->
+  <div class="panel" id="panel-quiz">
+    <div class="panel-intro">
+      <h2>選擇題測驗</h2>
+      <p>三種題型，做錯的字會自動降熟練度、加進近期複習。</p>
+    </div>
+    <div class="practice-controls">
+      <div class="row" style="margin-bottom: 8px;">
+        <span class="label">題型：</span>
+        <button class="pill indigo active" data-qmode="jp-romaji">看假名選羅馬</button>
+        <button class="pill indigo" data-qmode="romaji-jp">看羅馬選假名</button>
+        <button class="pill indigo" data-qmode="listen-jp">聽音選假名</button>
+      </div>
+      <div class="row">
+        <span class="label">類別：</span>
+        <button class="pill active" data-q-cat="清音">清音</button>
+        <button class="pill active" data-q-cat="濁音">濁音</button>
+        <button class="pill active" data-q-cat="半濁音">半濁音</button>
+        <button class="pill" data-q-cat="拗音">拗音</button>
+      </div>
+    </div>
+    <div id="quiz-area"></div>
+  </div>
+
+  <!-- PROGRESS PANEL -->
+  <div class="panel" id="panel-progress">
+    <div class="panel-intro">
+      <h2>學習進度</h2>
+      <p>每個字的熟練度由顏色表示，深色 = 越熟。連續答對提升等級，答錯會降級。點任何字可立即聽發音。</p>
+    </div>
+    <div class="mastery-legend">
+      <span>熟練度：</span>
+      <div class="item"><div class="box" style="background:var(--m0)"></div>未學 0</div>
+      <div class="item"><div class="box" style="background:var(--m1)"></div>1</div>
+      <div class="item"><div class="box" style="background:var(--m2)"></div>2</div>
+      <div class="item"><div class="box" style="background:var(--m3)"></div>3</div>
+      <div class="item"><div class="box" style="background:var(--m4)"></div>4</div>
+      <div class="item"><div class="box" style="background:var(--m5)"></div>5</div>
+      <div class="item"><div class="box" style="background:var(--m6)"></div>精熟 6+</div>
+    </div>
+    <div id="progress-content"></div>
+    <div class="danger-zone">
+      <h3>重置學習資料</h3>
+      <p>清除所有熟練度與複習紀錄，重新開始（無法復原）。</p>
+      <button class="reset-btn" id="reset-all">⚠ 清除所有資料</button>
+    </div>
+  </div>
+
+  <footer>
+    Hiragana SRS <span class="dash">·</span> 104 characters <span class="dash">·</span> 間隔重複・最強的記憶夥伴
+  </footer>
+</div>
+
+<!-- SETTINGS -->
+<div class="settings-bar">
+  <label>聲音：
+    <select id="voice-select"><option>載入中…</option></select>
+  </label>
+  <label>語速：
+    <input type="range" id="rate-slider" min="0.5" max="1.2" step="0.05" value="0.8">
+    <span id="rate-value">0.80</span>
+  </label>
+</div>
+
+<script>
+/* ============================================================
+   STORAGE (graceful fallback to in-memory)
+============================================================ */
+const storage = {
+  _mem: {},
+  get(key) {
+    try { return localStorage.getItem(key); }
+    catch (e) { return this._mem[key]; }
+  },
+  set(key, value) {
+    try { localStorage.setItem(key, value); }
+    catch (e) { this._mem[key] = value; }
+  },
+  remove(key) {
+    try { localStorage.removeItem(key); }
+    catch (e) { delete this._mem[key]; }
+  }
+};
+
+/* ============================================================
+   DATA — All 104 hiragana
+============================================================ */
+const KANA_DATA = {
+  '清音': {
+    'あ行': [['あ','a'],['い','i'],['う','u'],['え','e'],['お','o']],
+    'か行': [['か','ka'],['き','ki'],['く','ku'],['け','ke'],['こ','ko']],
+    'さ行': [['さ','sa'],['し','shi'],['す','su'],['せ','se'],['そ','so']],
+    'た行': [['た','ta'],['ち','chi'],['つ','tsu'],['て','te'],['と','to']],
+    'な行': [['な','na'],['に','ni'],['ぬ','nu'],['ね','ne'],['の','no']],
+    'は行': [['は','ha'],['ひ','hi'],['ふ','fu'],['へ','he'],['ほ','ho']],
+    'ま行': [['ま','ma'],['み','mi'],['む','mu'],['め','me'],['も','mo']],
+    'や行': [['や','ya'],['ゆ','yu'],['よ','yo']],
+    'ら行': [['ら','ra'],['り','ri'],['る','ru'],['れ','re'],['ろ','ro']],
+    'わ行': [['わ','wa'],['を','wo']],
+    'ん': [['ん','n']],
+  },
+  '濁音': {
+    'が行': [['が','ga'],['ぎ','gi'],['ぐ','gu'],['げ','ge'],['ご','go']],
+    'ざ行': [['ざ','za'],['じ','ji'],['ず','zu'],['ぜ','ze'],['ぞ','zo']],
+    'だ行': [['だ','da'],['ぢ','ji'],['づ','zu'],['で','de'],['ど','do']],
+    'ば行': [['ば','ba'],['び','bi'],['ぶ','bu'],['べ','be'],['ぼ','bo']],
+  },
+  '半濁音': {
+    'ぱ行': [['ぱ','pa'],['ぴ','pi'],['ぷ','pu'],['ぺ','pe'],['ぽ','po']],
+  },
+  '拗音': {
+    'き拗': [['きゃ','kya'],['きゅ','kyu'],['きょ','kyo']],
+    'し拗': [['しゃ','sha'],['しゅ','shu'],['しょ','sho']],
+    'ち拗': [['ちゃ','cha'],['ちゅ','chu'],['ちょ','cho']],
+    'に拗': [['にゃ','nya'],['にゅ','nyu'],['にょ','nyo']],
+    'ひ拗': [['ひゃ','hya'],['ひゅ','hyu'],['ひょ','hyo']],
+    'み拗': [['みゃ','mya'],['みゅ','myu'],['みょ','myo']],
+    'り拗': [['りゃ','rya'],['りゅ','ryu'],['りょ','ryo']],
+    'ぎ拗': [['ぎゃ','gya'],['ぎゅ','gyu'],['ぎょ','gyo']],
+    'じ拗': [['じゃ','ja'],['じゅ','ju'],['じょ','jo']],
+    'び拗': [['びゃ','bya'],['びゅ','byu'],['びょ','byo']],
+    'ぴ拗': [['ぴゃ','pya'],['ぴゅ','pyu'],['ぴょ','pyo']],
+  },
+};
+
+// Flatten to list with category info
+const ALL_KANA = [];
+Object.entries(KANA_DATA).forEach(([cat, subgroups]) => {
+  Object.entries(subgroups).forEach(([sub, items]) => {
+    items.forEach(([jp, romaji]) => {
+      ALL_KANA.push({ jp, romaji, cat, sub });
+    });
+  });
+});
+
+/* ============================================================
+   SRS STATE
+   Each kana has: { level, due, correct, wrong, lastSeen }
+   Levels and intervals (in minutes):
+   0: now (new or just got wrong)
+   1: 10 min
+   2: 60 min (1 hour)
+   3: 1440 min (1 day)
+   4: 4320 min (3 days)
+   5: 10080 min (7 days)
+   6: 20160 min (14 days)
+   7+: 43200 min (30 days, mastered)
+============================================================ */
+const INTERVALS = [0, 10, 60, 1440, 4320, 10080, 20160, 43200];
+
+function getSrsState() {
+  const raw = storage.get('hira-srs-v1');
+  if (raw) {
+    try { return JSON.parse(raw); } catch (e) {}
+  }
+  // Initialize fresh state
+  const state = {};
+  ALL_KANA.forEach(k => {
+    state[k.jp] = { level: 0, due: 0, correct: 0, wrong: 0, lastSeen: 0 };
+  });
+  return state;
+}
+
+function saveSrsState() {
+  storage.set('hira-srs-v1', JSON.stringify(srs));
+}
+
+let srs = getSrsState();
+
+// Ensure all kana exist in state (handles future additions)
+ALL_KANA.forEach(k => {
+  if (!srs[k.jp]) srs[k.jp] = { level: 0, due: 0, correct: 0, wrong: 0, lastSeen: 0 };
+});
+
+// Track session stats
+let sessionStats = {
+  reviewed: parseInt(storage.get('hira-session-reviewed') || '0'),
+  correct: parseInt(storage.get('hira-session-correct') || '0'),
+  date: storage.get('hira-session-date') || '',
+};
+
+// Reset session stats if it's a new day
+const today = new Date().toISOString().slice(0, 10);
+if (sessionStats.date !== today) {
+  sessionStats = { reviewed: 0, correct: 0, date: today };
+  storage.set('hira-session-date', today);
+  storage.set('hira-session-reviewed', '0');
+  storage.set('hira-session-correct', '0');
+}
+
+function recordAnswer(jpKana, correct) {
+  const s = srs[jpKana];
+  if (!s) return;
+  const now = Date.now();
+  if (correct) {
+    s.level = Math.min(7, s.level + 1);
+    s.correct++;
+  } else {
+    s.level = Math.max(0, s.level - 2);
+    s.wrong++;
+  }
+  s.lastSeen = now;
+  s.due = now + INTERVALS[Math.min(s.level, INTERVALS.length - 1)] * 60 * 1000;
+  saveSrsState();
+
+  sessionStats.reviewed++;
+  if (correct) sessionStats.correct++;
+  storage.set('hira-session-reviewed', String(sessionStats.reviewed));
+  storage.set('hira-session-correct', String(sessionStats.correct));
+  renderQuickStats();
+}
+
+// Pick next card for SRS practice (weighted: due > new > rest)
+function pickNextCard(categories) {
+  const pool = ALL_KANA.filter(k => categories.includes(k.cat));
+  if (pool.length === 0) return null;
+  const now = Date.now();
+
+  // Due cards (level > 0 and due passed)
+  const due = pool.filter(k => srs[k.jp].lastSeen > 0 && srs[k.jp].due <= now);
+  // New cards (never seen)
+  const fresh = pool.filter(k => srs[k.jp].lastSeen === 0);
+  // Not yet due (have to wait)
+  const waiting = pool.filter(k => srs[k.jp].lastSeen > 0 && srs[k.jp].due > now);
+
+  let candidates;
+  if (due.length > 0) {
+    // Prioritize most overdue
+    candidates = due.sort((a, b) => srs[a.jp].due - srs[b.jp].due).slice(0, Math.min(5, due.length));
+  } else if (fresh.length > 0) {
+    // Introduce new cards
+    candidates = fresh.slice(0, Math.min(3, fresh.length));
+  } else {
+    // Everything is in the future — show the soonest-due ones anyway
+    candidates = waiting.sort((a, b) => srs[a.jp].due - srs[b.jp].due).slice(0, 5);
+  }
+
+  // Avoid same card twice in a row
+  if (candidates.length > 1 && lastSrsCard) {
+    candidates = candidates.filter(k => k.jp !== lastSrsCard);
+  }
+  return candidates[Math.floor(Math.random() * candidates.length)];
+}
+
+let lastSrsCard = null;
+
+/* ============================================================
+   SPEECH SYNTHESIS
+============================================================ */
+const synth = window.speechSynthesis;
+let currentRate = 0.8;
+let selectedVoice = null;
+
+function populateVoices() {
+  if (!synth) return;
+  const voices = synth.getVoices().filter(v => v.lang.startsWith('ja'));
+  const select = document.getElementById('voice-select');
+  select.innerHTML = '';
+
+  if (voices.length === 0) {
+    select.innerHTML = '<option>無日語音色</option>';
+    return;
+  }
+
+  voices.forEach((v, i) => {
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = v.name.length > 26 ? v.name.slice(0, 24) + '…' : v.name;
+    select.appendChild(opt);
+  });
+
+  const preferred = voices.findIndex(v => /female|kyoko|haruka|sayaka|nanami|google/i.test(v.name));
+  select.value = preferred >= 0 ? preferred : 0;
+  selectedVoice = voices[parseInt(select.value)];
+
+  select.onchange = () => { selectedVoice = voices[parseInt(select.value)]; };
+}
+
+if (synth) {
+  populateVoices();
+  synth.onvoiceschanged = populateVoices;
+}
+
+function speak(text, onStart, onEnd) {
+  if (!synth || !text) { onEnd && onEnd(); return; }
+  synth.cancel();
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = 'ja-JP';
+  utter.rate = currentRate;
+  if (selectedVoice) utter.voice = selectedVoice;
+  utter.onstart = () => onStart && onStart();
+  utter.onend = () => onEnd && onEnd();
+  utter.onerror = () => onEnd && onEnd();
+  synth.speak(utter);
+}
+
+/* ============================================================
+   QUICK STATS RENDER
+============================================================ */
+function renderQuickStats() {
+  const now = Date.now();
+  const mastered = ALL_KANA.filter(k => srs[k.jp].level >= 4).length;
+  const dueCount = ALL_KANA.filter(k => srs[k.jp].lastSeen > 0 && srs[k.jp].due <= now).length;
+  const fresh = ALL_KANA.filter(k => srs[k.jp].lastSeen === 0).length;
+  const total = ALL_KANA.length;
+  const html = `
+    <div class="stat-card">
+      <div class="label">Today reviewed</div>
+      <div class="value indigo">${sessionStats.reviewed}<span class="unit">次</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Mastered</div>
+      <div class="value green">${mastered}<span class="unit">/ ${total}</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Due now</div>
+      <div class="value vermilion">${dueCount}<span class="unit">字</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Not yet learned</div>
+      <div class="value">${fresh}<span class="unit">字</span></div>
+    </div>
+  `;
+  document.getElementById('quick-stats').innerHTML = html;
+}
+
+/* ============================================================
+   TABS
+============================================================ */
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    synth && synth.cancel();
+    if (tab.dataset.tab === 'progress') renderProgress();
+    if (tab.dataset.tab === 'learn') renderLearn();
+  });
+});
+
+/* ============================================================
+   LEARN PANEL
+============================================================ */
+let learnCategory = '清音';
+
+function renderLearnPills() {
+  const pills = document.getElementById('learn-pills');
+  pills.innerHTML = Object.keys(KANA_DATA).map(cat =>
+    `<button class="pill ${cat === learnCategory ? 'active' : ''}" data-cat="${cat}">${cat} <span style="opacity:0.6;font-style:italic;">${Object.values(KANA_DATA[cat]).reduce((s, a) => s + a.length, 0)}</span></button>`
+  ).join('');
+
+  pills.querySelectorAll('.pill').forEach(p => {
+    p.addEventListener('click', () => {
+      learnCategory = p.dataset.cat;
+      renderLearnPills();
+      renderLearn();
+    });
+  });
+}
+
+function renderLearn() {
+  const container = document.getElementById('learn-content');
+  const subgroups = KANA_DATA[learnCategory];
+  const isYouon = learnCategory === '拗音';
+  container.innerHTML = Object.entries(subgroups).map(([sub, items]) => `
+    <div class="kana-section">
+      <div class="kana-section-title">
+        ${sub}
+        <span class="romaji-label">${items.map(i => i[1]).join(' / ')}</span>
+      </div>
+      <div class="kana-grid ${isYouon ? 'youon' : ''}">
+        ${items.map(([jp, romaji]) => {
+          const level = (srs[jp] && srs[jp].level) || 0;
+          return `
+            <div class="kcard ${isYouon ? 'youon' : ''}" data-jp="${jp}">
+              <div class="mastery-dot" style="background:var(--m${Math.min(6, level)})"></div>
+              <div class="jp">${jp}</div>
+              <div class="romaji">${romaji}</div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  container.querySelectorAll('.kcard').forEach(card => {
+    card.addEventListener('click', () => {
+      const jp = card.dataset.jp;
+      container.querySelectorAll('.kcard').forEach(c => c.classList.remove('speaking'));
+      card.classList.add('speaking');
+      speak(jp, null, () => card.classList.remove('speaking'));
+    });
+  });
+}
+
+/* ============================================================
+   PRACTICE (FLASHCARD SRS)
+============================================================ */
+let fcCurrent = null;
+let fcRevealed = false;
+let fcActiveCats = ['清音', '濁音', '半濁音'];
+
+document.querySelectorAll('[data-fc-cat]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('active');
+    fcActiveCats = Array.from(document.querySelectorAll('[data-fc-cat].active')).map(b => b.dataset.fcCat);
+    if (fcActiveCats.length === 0) {
+      btn.classList.add('active');
+      fcActiveCats = [btn.dataset.fcCat];
+    }
+    nextFlashcard();
+  });
+});
+
+function renderFlashcard() {
+  const area = document.getElementById('flashcard-area');
+  if (!fcCurrent) {
+    area.innerHTML = `
+      <div class="done-card">
+        <h2>太棒了！這個類別已全部完成</h2>
+        <p>已加入或都還沒到複習時間，請過一陣子再回來，或加選其他類別。</p>
+        <div class="next-time" id="next-due-info"></div>
+      </div>
+    `;
+    // Show next due time
+    const pool = ALL_KANA.filter(k => fcActiveCats.includes(k.cat) && srs[k.jp].lastSeen > 0);
+    if (pool.length > 0) {
+      pool.sort((a, b) => srs[a.jp].due - srs[b.jp].due);
+      const nextK = pool[0];
+      const diff = srs[nextK.jp].due - Date.now();
+      const minutes = Math.ceil(diff / 60000);
+      const hours = Math.floor(minutes / 60);
+      const days = Math.floor(hours / 24);
+      let timeStr;
+      if (days > 0) timeStr = `${days} 天後`;
+      else if (hours > 0) timeStr = `${hours} 小時後`;
+      else timeStr = `${minutes} 分鐘後`;
+      document.getElementById('next-due-info').textContent = `下一張「${nextK.jp}」(${nextK.romaji})・${timeStr}到期`;
+    }
+    return;
+  }
+  const s = srs[fcCurrent.jp];
+  const level = s.level;
+  const masteryPct = Math.min(100, (level / 6) * 100);
+  area.innerHTML = `
+    <div class="flashcard-stage">
+      <div class="flashcard-progress">${fcCurrent.cat} · ${fcCurrent.sub}</div>
+      <div class="flashcard-meta">
+        Lv. ${level}
+        <span class="mast-bar"><div style="width:${masteryPct}%"></div></span>
+      </div>
+      <div class="flashcard-kana">${fcCurrent.jp}</div>
+      <div class="flashcard-romaji" id="fc-romaji" style="opacity:${fcRevealed ? '1' : '0'};">${fcRevealed ? fcCurrent.romaji : '?'}</div>
+      <div class="flashcard-hint">${fcRevealed ? '答對了嗎？' : '在心裡念出來，然後揭曉'}</div>
+      <div class="flashcard-buttons ${fcRevealed ? 'reveal' : ''}">
+        <button class="fc-btn speak" id="fc-speak">♪</button>
+        <button class="fc-btn show" id="fc-show">揭曉答案</button>
+        <button class="fc-btn wrong" id="fc-wrong">不會 / 再來</button>
+        <button class="fc-btn right" id="fc-right">會了 ✓</button>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('fc-speak').addEventListener('click', () => {
+    speak(fcCurrent.jp);
+  });
+  if (!fcRevealed) {
+    document.getElementById('fc-show').addEventListener('click', revealFlashcard);
+  } else {
+    document.getElementById('fc-wrong').addEventListener('click', () => answerFlashcard(false));
+    document.getElementById('fc-right').addEventListener('click', () => answerFlashcard(true));
+  }
+}
+
+function revealFlashcard() {
+  fcRevealed = true;
+  renderFlashcard();
+  speak(fcCurrent.jp);
+}
+
+function answerFlashcard(correct) {
+  recordAnswer(fcCurrent.jp, correct);
+  lastSrsCard = fcCurrent.jp;
+  nextFlashcard();
+}
+
+function nextFlashcard() {
+  fcCurrent = pickNextCard(fcActiveCats);
+  fcRevealed = false;
+  renderFlashcard();
+  // Auto-play sound after a short delay if a new card appears
+  if (fcCurrent) {
+    setTimeout(() => speak(fcCurrent.jp), 350);
+  }
+}
+
+// Keyboard shortcuts for practice
+document.addEventListener('keydown', (e) => {
+  const practicePanel = document.getElementById('panel-practice');
+  if (!practicePanel.classList.contains('active') || !fcCurrent) return;
+  if (e.key === ' ' || e.key === 'Enter') {
+    e.preventDefault();
+    if (!fcRevealed) revealFlashcard();
+  } else if (fcRevealed) {
+    if (e.key === '1' || e.key === 'x') answerFlashcard(false);
+    else if (e.key === '2' || e.key === 'c' || e.key === 'v') answerFlashcard(true);
+  }
+});
+
+/* ============================================================
+   QUIZ
+============================================================ */
+let quizMode = 'jp-romaji';
+let quizActiveCats = ['清音', '濁音', '半濁音'];
+let quizState = { current: null, score: 0, total: 0, wrong: 0, answered: false };
+
+document.querySelectorAll('[data-qmode]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-qmode]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    quizMode = btn.dataset.qmode;
+    newQuizQ();
+  });
+});
+
+document.querySelectorAll('[data-q-cat]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('active');
+    quizActiveCats = Array.from(document.querySelectorAll('[data-q-cat].active')).map(b => b.dataset.qCat);
+    if (quizActiveCats.length === 0) {
+      btn.classList.add('active');
+      quizActiveCats = [btn.dataset.qCat];
+    }
+    newQuizQ();
+  });
+});
+
+function newQuizQ() {
+  const pool = ALL_KANA.filter(k => quizActiveCats.includes(k.cat));
+  if (pool.length < 4) {
+    document.getElementById('quiz-area').innerHTML = '<div class="quiz-stage">至少選一個類別且字數 ≥ 4 才能測驗。</div>';
+    return;
+  }
+  // Bias toward weaker cards (lower level)
+  const weighted = [];
+  pool.forEach(k => {
+    const weight = Math.max(1, 7 - srs[k.jp].level);
+    for (let i = 0; i < weight; i++) weighted.push(k);
+  });
+  const correct = weighted[Math.floor(Math.random() * weighted.length)];
+
+  // Get 3 distractors from the same category if possible
+  const sameCat = pool.filter(k => k.cat === correct.cat && k.jp !== correct.jp);
+  const others = [];
+  const candidates = sameCat.length >= 3 ? sameCat : pool.filter(k => k.jp !== correct.jp);
+  while (others.length < 3 && candidates.length > 0) {
+    const idx = Math.floor(Math.random() * candidates.length);
+    const pick = candidates.splice(idx, 1)[0];
+    // For romaji-jp mode, ensure unique romaji in options
+    if (quizMode === 'jp-romaji' || quizMode === 'listen-jp') {
+      if (!others.some(o => o.romaji === pick.romaji) && pick.romaji !== correct.romaji) {
+        others.push(pick);
+      }
+    } else {
+      others.push(pick);
+    }
+  }
+  while (others.length < 3) {
+    others.push(pool[Math.floor(Math.random() * pool.length)]);
+  }
+
+  const options = [correct, ...others].sort(() => Math.random() - 0.5);
+  quizState.current = correct;
+  quizState.options = options;
+  quizState.answered = false;
+  renderQuiz();
+}
+
+function renderQuiz() {
+  const q = quizState.current;
+  if (!q) { newQuizQ(); return; }
+  const area = document.getElementById('quiz-area');
+
+  let promptHtml = '';
+  let optionsHtml = '';
+  let optionsClass = 'quiz-options';
+
+  if (quizMode === 'jp-romaji') {
+    promptHtml = `
+      <div class="quiz-prompt">這個假名的羅馬拼音是？</div>
+      <div class="quiz-question-jp">${q.jp}</div>
+    `;
+    optionsHtml = quizState.options.map(o => `
+      <button class="quiz-option" data-correct="${o.jp === q.jp}">${o.romaji}</button>
+    `).join('');
+  } else if (quizMode === 'romaji-jp') {
+    promptHtml = `
+      <div class="quiz-prompt">這個羅馬拼音對應哪個假名？</div>
+      <div class="quiz-question-romaji">${q.romaji}</div>
+    `;
+    optionsClass = 'quiz-options large';
+    optionsHtml = quizState.options.map(o => `
+      <button class="quiz-option" data-correct="${o.jp === q.jp}">${o.jp}</button>
+    `).join('');
+  } else if (quizMode === 'listen-jp') {
+    promptHtml = `
+      <div class="quiz-prompt">點按鈕聽發音，選正確的假名</div>
+      <button class="quiz-audio-btn" id="quiz-play">♪</button>
+    `;
+    optionsClass = 'quiz-options large';
+    optionsHtml = quizState.options.map(o => `
+      <button class="quiz-option" data-correct="${o.jp === q.jp}">${o.jp}</button>
+    `).join('');
+  }
+
+  area.innerHTML = `
+    <div class="quiz-stage">
+      <div class="quiz-progress">Question ${quizState.total + 1}</div>
+      ${promptHtml}
+      <div class="${optionsClass}">${optionsHtml}</div>
+      <button class="quiz-next" id="quiz-next" disabled>下一題 →</button>
+      <div class="quiz-score">
+        <div><div class="label">Correct</div><div class="value green">${quizState.score}</div></div>
+        <div><div class="label">Wrong</div><div class="value vermilion">${quizState.wrong}</div></div>
+        <div><div class="label">Total</div><div class="value">${quizState.total}</div></div>
+      </div>
+    </div>
+  `;
+
+  if (quizMode === 'listen-jp') {
+    const btn = document.getElementById('quiz-play');
+    const play = () => {
+      btn.classList.add('speaking');
+      speak(q.jp, null, () => btn.classList.remove('speaking'));
+    };
+    btn.addEventListener('click', play);
+    setTimeout(play, 300);
+  }
+
+  area.querySelectorAll('.quiz-option').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (quizState.answered) return;
+      quizState.answered = true;
+      const isCorrect = btn.dataset.correct === 'true';
+      quizState.total++;
+      if (isCorrect) {
+        quizState.score++;
+        btn.classList.add('correct');
+      } else {
+        quizState.wrong++;
+        btn.classList.add('wrong');
+        area.querySelectorAll('.quiz-option').forEach(o => {
+          if (o.dataset.correct === 'true') o.classList.add('correct');
+        });
+      }
+      area.querySelectorAll('.quiz-option').forEach(o => o.disabled = true);
+      document.getElementById('quiz-next').disabled = false;
+      recordAnswer(q.jp, isCorrect);
+
+      // Auto-play correct sound
+      if (quizMode !== 'listen-jp') {
+        setTimeout(() => speak(q.jp), 200);
+      }
+    });
+  });
+
+  document.getElementById('quiz-next').addEventListener('click', newQuizQ);
+}
+
+/* ============================================================
+   PROGRESS PANEL
+============================================================ */
+function renderProgress() {
+  const container = document.getElementById('progress-content');
+  let html = '';
+
+  Object.entries(KANA_DATA).forEach(([cat, subgroups]) => {
+    const allInCat = [];
+    Object.values(subgroups).forEach(items => items.forEach(([jp, romaji]) => allInCat.push({ jp, romaji })));
+    const mastered = allInCat.filter(k => srs[k.jp].level >= 4).length;
+    const total = allInCat.length;
+    html += `
+      <div class="progress-section">
+        <h3>${cat} <span style="font-family:'Crimson Pro',serif;font-style:italic;color:var(--ink-faint);font-size:14px;font-weight:400;">${mastered} / ${total} mastered</span></h3>
+        <div class="heatmap">
+          ${allInCat.map(k => {
+            const level = srs[k.jp].level;
+            return `<div class="hcard" data-jp="${k.jp}" data-mastery="${Math.min(6, level)}" title="Level ${level} · ${srs[k.jp].correct}/${srs[k.jp].correct + srs[k.jp].wrong}">
+              <div>${k.jp}</div>
+              <div class="small-romaji">${k.romaji}</div>
+            </div>`;
+          }).join('')}
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+
+  container.querySelectorAll('.hcard').forEach(card => {
+    card.addEventListener('click', () => {
+      const jp = card.dataset.jp;
+      speak(jp);
+    });
+  });
+}
+
+document.getElementById('reset-all').addEventListener('click', () => {
+  if (!confirm('確定要清除所有學習資料嗎？此操作無法復原。')) return;
+  storage.remove('hira-srs-v1');
+  storage.remove('hira-session-reviewed');
+  storage.remove('hira-session-correct');
+  storage.remove('hira-session-date');
+  srs = getSrsState();
+  ALL_KANA.forEach(k => {
+    if (!srs[k.jp]) srs[k.jp] = { level: 0, due: 0, correct: 0, wrong: 0, lastSeen: 0 };
+  });
+  sessionStats = { reviewed: 0, correct: 0, date: today };
+  storage.set('hira-session-date', today);
+  renderQuickStats();
+  renderProgress();
+  renderLearn();
+  if (document.getElementById('panel-practice').classList.contains('active')) {
+    nextFlashcard();
+  }
+});
+
+/* ============================================================
+   SETTINGS BAR
+============================================================ */
+const rateSlider = document.getElementById('rate-slider');
+const rateValue = document.getElementById('rate-value');
+rateSlider.addEventListener('input', () => {
+  currentRate = parseFloat(rateSlider.value);
+  rateValue.textContent = currentRate.toFixed(2);
+});
+
+/* ============================================================
+   INIT
+============================================================ */
+renderQuickStats();
+renderLearnPills();
+renderLearn();
+nextFlashcard();
+newQuizQ();
+// Update stats every minute (due counts change with time)
+setInterval(renderQuickStats, 60000);
+
+</script>
+</body>
+</html>
